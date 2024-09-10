@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>helloworld</artifactId>
@@ -7,6 +8,8 @@
   <version>1.0-SNAPSHOT</version>
   <name>helloworld Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <!-- Dependencies -->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,7 +18,33 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <!-- Build Configuration -->
   <build>
     <finalName>helloworld</finalName>
+
+    <!-- Add Maven Compiler Plugin to specify Java version -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>  <!-- Replace with your Java version -->
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <!-- Add Maven WAR Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version> <!-- Newer version of the WAR plugin -->
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Avoid error if web.xml is missing -->
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
+
 </project>
